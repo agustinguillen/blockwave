@@ -30,7 +30,7 @@ const Home = () => {
         text: {
             marginTop: '5vh',
             fontSize: isMobile ? '1rem' : '1.2rem',
-            width: isMobile ? '90vw' : '70vw'
+            width: isMobile ? '85vw' : '70vw'
         },
         brand: {
             background: 'linear-gradient(45deg, #FFA500, #FFFF00)',

@@ -38,13 +38,14 @@ const About = () => {
                         <Box
                             sx={{
                                 marginTop: isMobile ? '15px' : '3%',
-                                width: '100%',
+                                width: isMobile ? '100%' : '80%',
+                                marginLeft: isMobile ? '0%' : '10%',
                                 display: 'flex',
                                 justifyContent: 'space-between',
                                 flexWrap: 'wrap',
                                 '& > *': {
-                                    flexBasis: '26%', // Adjust the percentage value as needed
-                                    marginBottom: '20px', // Optional: Add some spacing between cards
+                                    flexBasis: '40%', 
+                                    marginBottom: '20px', 
                                 },
                                 minHeight: 'fit-content'
                             }}

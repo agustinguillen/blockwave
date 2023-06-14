@@ -1,9 +1,7 @@
 import JanePhoto from '../assets/crew4.jpg'
 import DavidPhoto from '../assets/crew2.jpg'
-import MariaPhoto from '../assets/crew3.jpg'
 import MichaelPhoto from '../assets/crew1.jpg'
 import SophiaPhoto from '../assets/crew5.jpg'
-import EthanPhoto from '../assets/crew6.jpg'
 
 export const crew = [
     {
@@ -29,17 +27,5 @@ export const crew = [
         position: 'Head of Product Development',
         bio: 'Product development leader delivering user-friendly and innovative solutions.',
         photo: MichaelPhoto
-    },   
-    {
-        name: 'Ethan Wilson',
-        position: 'Chief Financial Officer (CFO)',
-        bio: 'Financial strategist ensuring stability and overseeing budgeting and planning.',
-        photo: EthanPhoto
-    },
-    {
-        name: 'Maria Rodriguez',
-        position: 'Lead UX/UI Designer',
-        bio: 'Talented designer creating intuitive and visually appealing experiences.',
-        photo: MariaPhoto 
     },
 ]
