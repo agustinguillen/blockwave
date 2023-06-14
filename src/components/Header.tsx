@@ -1,4 +1,4 @@
-import { AppBar, Toolbar } from "@material-ui/core"
+import AppBar from '@mui/material/AppBar';
 import { MainLogo } from "./MainLogo"
 import { AppMenu } from "./Menu"
 

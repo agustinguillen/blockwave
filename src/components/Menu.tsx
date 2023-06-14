@@ -1,9 +1,11 @@
-import { Toolbar, Button, IconButton, Hidden } from "@material-ui/core";
+import { Toolbar, Button, IconButton, useTheme, useMediaQuery } from "@mui/material";
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import { useState } from 'react'
 import { MenuMobile } from "./MenuMobile";
 
 export const AppMenu = () => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const [currentSection, setCurrentSection] = useState<string>('home')
     const styles = {
         toolbar: {
@@ -61,43 +63,45 @@ export const AppMenu = () => {
 
     return (
         <>
-            <Hidden xsDown>
+            {
+                !isMobile &&
                 <Toolbar style={styles.toolbar}>
-                    <Button 
-                        className='link' 
-                        style={currentSection === 'home' ? {...styles.buttonMenu, ...styles.buttonMenuSelected} : styles.buttonMenu} 
-                        color="inherit" 
+                    <Button
+                        className='link'
+                        style={currentSection === 'home' ? { ...styles.buttonMenu, ...styles.buttonMenuSelected } : styles.buttonMenu}
+                        color="inherit"
                         onClick={() => handleSmoothScroll('home')}
                     >
                         Home
                     </Button>
-                    <Button 
-                        className='link' 
-                        style={currentSection === 'services' ? {...styles.buttonMenu, ...styles.buttonMenuSelected} : styles.buttonMenu} 
-                        color="inherit" 
+                    <Button
+                        className='link'
+                        style={currentSection === 'services' ? { ...styles.buttonMenu, ...styles.buttonMenuSelected } : styles.buttonMenu}
+                        color="inherit"
                         onClick={() => handleSmoothScroll('services')}
                     >
                         Our Services
                     </Button>
-                    <Button 
-                        className='link' 
-                        style={currentSection === 'clients' ? {...styles.buttonMenu, ...styles.buttonMenuSelected} : styles.buttonMenu} 
-                        color="inherit" 
+                    <Button
+                        className='link'
+                        style={currentSection === 'clients' ? { ...styles.buttonMenu, ...styles.buttonMenuSelected } : styles.buttonMenu}
+                        color="inherit"
                         onClick={() => handleSmoothScroll('clients')}
                     >
                         Our Clients
                     </Button>
-                    <Button 
-                        className='link' 
-                        style={currentSection === 'about' ? {...styles.buttonMenu, ...styles.buttonMenuSelected} : styles.buttonMenu} 
-                        color="inherit" 
+                    <Button
+                        className='link'
+                        style={currentSection === 'about' ? { ...styles.buttonMenu, ...styles.buttonMenuSelected } : styles.buttonMenu}
+                        color="inherit"
                         onClick={() => handleSmoothScroll('about')}
                     >
                         About Us
                     </Button>
                 </Toolbar>
-            </Hidden>
-            <Hidden smUp>
+            }
+            {
+                isMobile &&
                 <Toolbar style={styles.toolbar}>
                     <IconButton
                         edge="start"
@@ -109,14 +113,13 @@ export const AppMenu = () => {
                         <MenuRoundedIcon />
                     </IconButton>
                 </Toolbar>
-                <MenuMobile 
-                    showMenu={showMenu} 
-                    setShowMenu={setShowMenu} 
-                    handleSmoothScroll={handleSmoothScroll} 
-                    currentSection={currentSection}
-                />
-            </Hidden>
-
+            }
+            <MenuMobile
+                showMenu={showMenu}
+                setShowMenu={setShowMenu}
+                handleSmoothScroll={handleSmoothScroll}
+                currentSection={currentSection}
+            />
         </>
 
     )

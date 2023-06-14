@@ -1,10 +1,9 @@
-import { Box, Grid, useTheme, useMediaQuery } from "@mui/material"
+import { Box, Grid, Typography, useTheme, useMediaQuery } from "@mui/material"
 import { MainLogo } from "./MainLogo"
 import { CustomIcon } from "./CustomIcon"
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import { Typography } from "@material-ui/core";
 
 export const Footer = () => {
     const theme = useTheme();
