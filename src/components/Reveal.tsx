@@ -6,9 +6,10 @@ interface Props {
     width?: 'fit-content' | '100%'
     block?: boolean
     blockColor?: string
+    delay?: number
 }
 
-export const Reveal = ({children, width = 'fit-content', block, blockColor}: Props) => {
+export const Reveal = ({children, width = 'fit-content', block, blockColor, delay}: Props) => {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true })
     const mainControls = useAnimation()
@@ -22,7 +23,7 @@ export const Reveal = ({children, width = 'fit-content', block, blockColor}: Pro
     }, [isInView])
 
     return (
-        <div ref={ref} style={{ position: 'relative', width, overflow: 'hidden' }}>
+        <div ref={ref} style={{ position: 'relative', width, overflow: 'hidden', minHeight:'fit-content' }}>
             <motion.div
                 variants={{
                     hidden: {opacity: 0, y: 75},
@@ -31,7 +32,7 @@ export const Reveal = ({children, width = 'fit-content', block, blockColor}: Pro
                 initial='hidden'
                 animate={mainControls}
                 transition={{
-                    duration: 0.5, delay: 0.25
+                    duration: 0.5, delay: delay ? delay : 0.5
                 }}
             >{children}</motion.div>
             { block &&

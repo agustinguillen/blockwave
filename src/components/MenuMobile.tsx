@@ -5,11 +5,11 @@ interface Props {
     showMenu: boolean
     setShowMenu: Dispatch<SetStateAction<boolean>>
     handleSmoothScroll: (id: string) => void
+    currentSection: string
 }
 
-export const MenuMobile = ({ showMenu, setShowMenu, handleSmoothScroll }: Props) => {
+export const MenuMobile = ({ showMenu, setShowMenu, handleSmoothScroll, currentSection }: Props) => {
     const [visible, setVisible] = useState<boolean>(false);
-
     const styles = {
         menuBox: {
             backgroundColor: 'black',
@@ -37,7 +37,11 @@ export const MenuMobile = ({ showMenu, setShowMenu, handleSmoothScroll }: Props)
             minWidth: '100px',
             color: visible ? 'white' : 'black',
             transition: 'color 0.5s ease',
-        }
+        },
+        buttonMenuSelected: {
+            color: '#FFFF00',
+            filter: 'drop-shadow(0 0 5px rgba(221, 217, 42, 0.4))'
+        },
     };
 
     useEffect(() => {
@@ -51,28 +55,28 @@ export const MenuMobile = ({ showMenu, setShowMenu, handleSmoothScroll }: Props)
     return (
         <Box sx={styles.menuBox}>
             <Toolbar style={styles.toolbar}>
-                <Button style={styles.buttonMenu} color="inherit" onClick={() => {
+                <Button style={currentSection === 'home' ? { ...styles.buttonMenu, ...styles.buttonMenuSelected } : styles.buttonMenu} color="inherit" onClick={() => {
                     handleSmoothScroll('home')
                     setShowMenu(false)
                 }}>
                     Home
                 </Button>
-                <Button style={styles.buttonMenu} color="inherit" onClick={() => {
+                <Button style={currentSection === 'services' ? { ...styles.buttonMenu, ...styles.buttonMenuSelected } : styles.buttonMenu} color="inherit" onClick={() => {
                     handleSmoothScroll('services')
                     setShowMenu(false)
                 }}>
                     Our Services
                 </Button>
-                <Button style={styles.buttonMenu} color="inherit" onClick={() => {
+                <Button style={currentSection === 'clients' ? { ...styles.buttonMenu, ...styles.buttonMenuSelected } : styles.buttonMenu} color="inherit" onClick={() => {
                     handleSmoothScroll('clients')
                     setShowMenu(false)
                 }}>
                     Our Clients
                 </Button>
-                <Button style={styles.buttonMenu} color="inherit" onClick={() => {
+                <Button style={currentSection === 'about' ? { ...styles.buttonMenu, ...styles.buttonMenuSelected } : styles.buttonMenu} color="inherit" onClick={() => {
                     handleSmoothScroll('about')
                     setShowMenu(false)
-                }}> 
+                }}>
                     About Us
                 </Button>
             </Toolbar>

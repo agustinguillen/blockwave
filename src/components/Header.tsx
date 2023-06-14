@@ -48,9 +48,14 @@ export const Header = () => {
             backdropFilter: "blur(3px) brightness(2)",
         }
     }
+    const handleScrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
     return (
         <AppBar style={styles.appbar} className="header">
-            <MainLogo withBrand />
+            <div style={{ height: '100%', display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={handleScrollToTop}>
+                <MainLogo withBrand />
+            </div>
             <AppMenu />
             <div style={styles.flickeringContainer}>
                 <div style={styles.flickeringTube} />
